@@ -134,7 +134,7 @@ public class MainActivity extends AppCompatActivity {
                 R.id.pointsPage,
                 R.id.scanPage,
                 R.id.communityPage,
-                R.id.profilePage,
+                R.id.learnPage,
                 R.id.redeemPage};
 
         for (int i = 0; i < pages.length; i++) {
@@ -167,7 +167,7 @@ public class MainActivity extends AppCompatActivity {
                 frame4.setVisibility(View.VISIBLE);
                 break;
             case R.id.profile:
-                FrameLayout frame5 = findViewById(R.id.profilePage);
+                FrameLayout frame5 = findViewById(R.id.learnPage);
                 frame5.setVisibility(View.VISIBLE);
                 break;
         }

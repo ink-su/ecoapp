@@ -261,6 +261,11 @@
         android:visibility="invisible"
         android:background="@color/background_grey">
 
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/rewards_cap"/>
+
     </FrameLayout>
 
     <!-- Scan Page -->
@@ -331,16 +336,105 @@
         android:visibility="invisible"
         android:background="@color/background_grey">
 
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/social_cap"/>
+
     </FrameLayout>
 
-    <!-- Profile Page -->
+    <!-- learn Page -->
     <FrameLayout
-        android:id="@+id/profilePage"
+        android:id="@+id/learnPage"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:paddingTop="?attr/actionBarSize"
         android:visibility="invisible"
         android:background="@color/background_grey">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/p2_cap"/>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="@color/white">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="15dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="5dp"
+                        android:text="@string/learn_title1"
+                        android:textSize="24sp"
+                        android:textColor="@color/blue_yonder"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="15dp"
+                        android:layout_marginBottom="10dp"
+                        android:text="@string/learn_content1"
+                        android:textSize="18sp"
+                        android:textColor="@color/blue_yonder"/>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="@color/white">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="15dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="5dp"
+                        android:text="@string/learn_title2"
+                        android:textSize="24sp"
+                        android:textColor="@color/blue_yonder"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="15dp"
+                        android:layout_marginBottom="10dp"
+                        android:text="@string/learn_content2"
+                        android:textSize="18sp"
+                        android:textColor="@color/blue_yonder"/>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
 
 
 
@@ -355,6 +449,5 @@
         app:itemIconTint="@color/white"
         app:itemTextColor="@color/white"
         app:menu="@menu/navigation_items" />
-
 
 </FrameLayout>

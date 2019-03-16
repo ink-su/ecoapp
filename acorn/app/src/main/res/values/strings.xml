@@ -69,4 +69,10 @@
     <string name="scanning_success_title">Scan Successful!</string>
     <string name="scanning_success_subtitle">3 points added!</string>
 
+    <!-- Learn -->
+    <string name="learn_title1">11 easy ways to reduce your plastic waste today</string>
+    <string name="learn_content1">This web page explores 11 different ways you can reduce your environmental footprint. It will help...</string>
+    <string name="learn_title2">Five ways to end food waste</string>
+    <string name="learn_content2">This fact sheet will help you sharpen your food storage skills so you can save both food and money. Even after being pulled out of the earth or off of a vine, fruits and vegetables are still breathing and ripening, so knowing how to properly store them can save your food from going bad and becoming waste.</string>
+
 </resources>
