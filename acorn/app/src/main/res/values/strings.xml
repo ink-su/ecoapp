@@ -48,6 +48,9 @@
     <string name="invalid_password_confirm">Passwords do not match</string>
     <string name="register_error">Register failed</string>
 
-
+    <!-- Scanning -->
+    <string name="scanning_instruction_title">See an Acorn Marker?</string>
+    <string name="scanning_instruction_subtitle">Scan NFC tag by placing your phone against it</string>
+    <string name="scanning_success">Scan Successful! 3 points added!</string>
 
 </resources>
