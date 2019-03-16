@@ -2,6 +2,13 @@
     <string name="app_name">Acorn</string>
     <string name="title_activity_login">Sign in</string>
 
+    <!-- Menu Items -->
+
+    <string name="earn">Earn</string>
+    <string name="points">Points</string>
+    <string name="scan">Scan</string>
+    <string name="community">Social</string>
+    <string name="profile">Profile</string>
     <!-- Strings related to login -->
     <string name="prompt_title">Title</string>
     <string name="prompt_time">Time and Date</string>
