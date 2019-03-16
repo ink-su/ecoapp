@@ -1,5 +1,6 @@
 package com.eco.acorn;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
@@ -8,10 +9,15 @@ import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -57,16 +63,28 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mAudioManager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
+        final BottomNavigationView bottomBar = findViewById(R.id.bottom_navigation);
+        bottomBar.setSelectedItemId(R.id.scan);
+        bottomBar.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                showPage(menuItem);
+                return true;
+            }
+        });
 
+        mAudioManager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
         mCard = findViewById(R.id.scanningCard);
         mCard.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
                 switch (event.getAction()) {
                     case MotionEvent.ACTION_DOWN:
+                        final TextView title = findViewById(R.id.titleText);
+                        title.setText(R.string.scanning_success_title);
+
                         final TextView subTitle = findViewById(R.id.scanningSubtitle);
-                        subTitle.setText(R.string.scanning_success);
+                        subTitle.setText(R.string.scanning_success_subtitle);
 
                         final ImageView logo = findViewById(R.id.scanLogo);
                         logo.setImageResource(R.drawable.check_mark);
@@ -76,7 +94,7 @@ public class MainActivity extends AppCompatActivity {
                         int result = mAudioManager.requestAudioFocus(mOnAudioFocusChangeListener,
                                 AudioManager.STREAM_MUSIC, AudioManager.AUDIOFOCUS_GAIN_TRANSIENT);
                         if (result == AudioManager.AUDIOFOCUS_REQUEST_GRANTED) {
-                            mMediaPlayer = mMediaPlayer.create(MainActivity.this, R.raw.chime);
+                            mMediaPlayer = mMediaPlayer.create(MainActivity.this, R.raw.wood_pecker);
                             mMediaPlayer.start();
                             mMediaPlayer.setOnCompletionListener(mCompletionLister);
                         }
@@ -84,6 +102,7 @@ public class MainActivity extends AppCompatActivity {
                         new Handler().postDelayed(new Runnable() {
                             @Override
                             public void run() {
+                                title.setText(R.string.scanning_instruction_title);
                                 subTitle.setText(R.string.scanning_instruction_subtitle);
                                 logo.setImageResource(R.drawable.acorn_logo);
                             }
@@ -94,5 +113,47 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             }
         });
+    }
+
+    // Shows/hides pages from navbar selection
+    private void showPage(MenuItem menuItem)
+    {
+        int[] pages = new int[] {
+            R.id.earnPage,
+            R.id.pointsPage,
+            R.id.scanPage,
+            R.id.communityPage,
+            R.id.profilePage};
+
+        for (int i = 0; i < pages.length; i++) {
+            FrameLayout frame = findViewById(pages[i]);
+            frame.setVisibility(View.INVISIBLE);
+        }
+
+        int id = menuItem.getItemId();
+        switch (id) {
+            case R.id.earn:
+                FrameLayout frame = findViewById(R.id.earnPage);
+                frame.setVisibility(View.VISIBLE);
+                break;
+            case R.id.points:
+                FrameLayout frame2 = findViewById(R.id.pointsPage);
+                frame2.setVisibility(View.VISIBLE);
+                break;
+            case R.id.scan:
+                FrameLayout frame3 = findViewById(R.id.scanPage);
+                frame3.setVisibility(View.VISIBLE);
+                break;
+            case R.id.community:
+                FrameLayout frame4 = findViewById(R.id.communityPage);
+                frame4.setVisibility(View.VISIBLE);
+                break;
+            case R.id.profile:
+                FrameLayout frame5 = findViewById(R.id.profilePage);
+                frame5.setVisibility(View.VISIBLE);
+                break;
+        }
+
+
     }
 }

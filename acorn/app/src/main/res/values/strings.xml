@@ -51,6 +51,7 @@
     <!-- Scanning -->
     <string name="scanning_instruction_title">See an Acorn Marker?</string>
     <string name="scanning_instruction_subtitle">Scan NFC tag by placing your phone against it</string>
-    <string name="scanning_success">Scan Successful! 3 points added!</string>
+    <string name="scanning_success_title">Scan Successful!</string>
+    <string name="scanning_success_subtitle">3 points added!</string>
 
 </resources>
