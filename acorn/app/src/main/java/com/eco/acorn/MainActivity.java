@@ -4,15 +4,16 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -22,6 +23,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 public class MainActivity extends AppCompatActivity {
 
     private CardView mCard;
+    private Button mRedeemButton;
 
     //initialize mediaPlayer object
     private MediaPlayer mMediaPlayer;
@@ -58,6 +60,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    @SuppressLint("ClickableViewAccessibility")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -94,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
                         int result = mAudioManager.requestAudioFocus(mOnAudioFocusChangeListener,
                                 AudioManager.STREAM_MUSIC, AudioManager.AUDIOFOCUS_GAIN_TRANSIENT);
                         if (result == AudioManager.AUDIOFOCUS_REQUEST_GRANTED) {
-                            mMediaPlayer = mMediaPlayer.create(MainActivity.this, R.raw.wood_pecker);
+                            mMediaPlayer = mMediaPlayer.create(MainActivity.this, R.raw.tones);
                             mMediaPlayer.start();
                             mMediaPlayer.setOnCompletionListener(mCompletionLister);
                         }
@@ -113,22 +116,37 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             }
         });
+
+        mRedeemButton = findViewById(R.id.redeem_button);
+        mRedeemButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                clearPages();
+                FrameLayout frame = findViewById(R.id.redeemPage);
+                frame.setVisibility(View.VISIBLE);
+            }
+        });
     }
 
-    // Shows/hides pages from navbar selection
-    private void showPage(MenuItem menuItem)
-    {
+    private void clearPages() {
         int[] pages = new int[] {
-            R.id.earnPage,
-            R.id.pointsPage,
-            R.id.scanPage,
-            R.id.communityPage,
-            R.id.profilePage};
+                R.id.earnPage,
+                R.id.pointsPage,
+                R.id.scanPage,
+                R.id.communityPage,
+                R.id.profilePage,
+                R.id.redeemPage};
 
         for (int i = 0; i < pages.length; i++) {
             FrameLayout frame = findViewById(pages[i]);
             frame.setVisibility(View.INVISIBLE);
         }
+    }
+
+    // Shows/hides pages from navbar selection
+    private void showPage(MenuItem menuItem)
+    {
+        clearPages();
 
         int id = menuItem.getItemId();
         switch (id) {
@@ -153,7 +171,5 @@ public class MainActivity extends AppCompatActivity {
                 frame5.setVisibility(View.VISIBLE);
                 break;
         }
-
-
     }
 }

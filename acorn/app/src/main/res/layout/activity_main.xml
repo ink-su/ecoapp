@@ -73,15 +73,18 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:paddingTop="?attr/actionBarSize"
-        android:visibility="invisible">
+        android:visibility="invisible"
+        android:background="@color/background_grey">
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content"
+            android:fillViewport="true">
 
             <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="wrap_content"
+                android:scrollbars="vertical">
 
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
@@ -97,16 +100,21 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_margin="10dp"
-                            android:text="Rewards"
+                            android:text="@string/earn_rewards_title"
                             android:textColor="@color/blue_yonder"
                             android:textSize="24sp"/>
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_margin="10dp"
-                            android:text="Find more shops to shop sustainably"
+                            android:text="@string/earn_rewards_subtitle"
                             android:textColor="@color/blue_yonder"
                             android:textSize="14sp"/>
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            android:src="@drawable/map_screencap"/>
 
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
@@ -125,19 +133,59 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_margin="10dp"
-                            android:text="Individual Tasks"
+                            android:text="@string/earn_tasks_title"
                             android:textColor="@color/blue_yonder"
                             android:textSize="24sp"/>
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_margin="10dp"
-                            android:text="What can you do to prevent pollution?"
+                            android:text="@string/earn_tasks_subtitle"
                             android:textColor="@color/blue_yonder"
                             android:textSize="14sp"/>
 
+                        <CheckBox
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/earn_check1"
+                            android:textColor="@color/blue_yonder"
+                            android:textSize="14sp"
+                            android:layout_margin="10dp"
+                            android:buttonTint="@color/colorAccent"/>
+
+                        <CheckBox
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/earn_check2"
+                            android:textColor="@color/blue_yonder"
+                            android:textSize="14sp"
+                            android:layout_margin="10dp"
+                            android:buttonTint="@color/colorAccent"/>
+
+                        <CheckBox
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/earn_check3"
+                            android:textColor="@color/blue_yonder"
+                            android:textSize="14sp"
+                            android:layout_margin="10dp"
+                            android:buttonTint="@color/colorAccent"/>
+
+                        <CheckBox
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/earn_check4"
+                            android:textColor="@color/blue_yonder"
+                            android:textSize="14sp"
+                            android:layout_margin="10dp"
+                            android:buttonTint="@color/colorAccent"/>
+
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"/>
 
             </LinearLayout>
 
@@ -151,7 +199,67 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:paddingTop="?attr/actionBarSize"
-        android:visibility="invisible">
+        android:visibility="invisible"
+        android:background="@color/background_grey">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:src="@drawable/redeem_cap" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/points_to_redeem"
+                android:textSize="24sp"
+                android:textColor="@color/blue_yonder"
+                android:textAlignment="center"
+                android:layout_margin="5dp"
+                android:layout_gravity="center_horizontal" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/points_instruction"
+                android:textSize="14sp"
+                android:textColor="@color/blue_yonder"
+                android:textAlignment="center"
+                android:layout_margin="5dp"
+                android:layout_gravity="center_horizontal"/>
+
+            <Button
+                android:id="@+id/redeem_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:layout_gravity="center_horizontal"
+                android:text="@string/points_redeem"
+                android:textSize="18sp"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:background="@color/colorAccent"/>
+
+        </LinearLayout>
+
+    </FrameLayout>
+
+    <!-- Redeem -->
+    <FrameLayout
+        android:id="@+id/redeemPage"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingTop="?attr/actionBarSize"
+        android:visibility="invisible"
+        android:background="@color/background_grey">
 
     </FrameLayout>
 
@@ -160,7 +268,8 @@
         android:id="@+id/scanPage"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingTop="?attr/actionBarSize">
+        android:paddingTop="?attr/actionBarSize"
+        android:background="@color/background_grey">
         <androidx.cardview.widget.CardView
             android:id="@+id/scanningCard"
             android:layout_width="match_parent"
@@ -219,7 +328,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:paddingTop="?attr/actionBarSize"
-        android:visibility="invisible">
+        android:visibility="invisible"
+        android:background="@color/background_grey">
 
     </FrameLayout>
 
@@ -229,7 +339,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:paddingTop="?attr/actionBarSize"
-        android:visibility="invisible">
+        android:visibility="invisible"
+        android:background="@color/background_grey">
 
 
 

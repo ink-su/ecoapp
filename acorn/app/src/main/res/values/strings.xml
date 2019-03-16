@@ -48,6 +48,21 @@
     <string name="invalid_password_confirm">Passwords do not match</string>
     <string name="register_error">Register failed</string>
 
+    <!-- Earn -->
+    <string name="earn_rewards_title">Rewards</string>
+    <string name="earn_rewards_subtitle">Find more shops to shop sustainably</string>
+    <string name="earn_tasks_title">Individual Tasks</string>
+    <string name="earn_tasks_subtitle">What can you do to prevent pollution?</string>
+    <string name="earn_check1">Turned off water while brushing teeth</string>
+    <string name="earn_check2">Bought local produce</string>
+    <string name="earn_check3">Used public transit today</string>
+    <string name="earn_check4">Filled a reusable water bottle</string>
+
+    <!-- Points -->
+    <string name="points_to_redeem">100 points</string>
+    <string name="points_instruction">available to redeem</string>
+    <string name="points_redeem">REDEEM</string>
+
     <!-- Scanning -->
     <string name="scanning_instruction_title">See an Acorn Marker?</string>
     <string name="scanning_instruction_subtitle">Scan NFC tag by placing your phone against it</string>

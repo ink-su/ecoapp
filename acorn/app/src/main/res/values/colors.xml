@@ -8,7 +8,9 @@
     <color name="white_trans">#aaffffff</color>
     <color name="white">#FFFFFFFF</color>
     <color name="black">#000000</color>
+    <color name="grey">#A9A9A9</color>
 
+    <color name="background_grey">#E9E8E8</color>
     <color name="blue_yonder">#586BA4</color>
     <color name="dark_blue">#324376</color>
 </resources>
