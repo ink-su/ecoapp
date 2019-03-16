@@ -13,6 +13,6 @@
         android:title="@string/community"
         android:icon="@drawable/ic_people_black_24dp" />
     <item android:id="@+id/profile"
-        android:title="@string/profile"
-        android:icon="@drawable/ic_account_circle_black_24dp" />
+        android:title="Learn"
+        android:icon="@drawable/ic_baseline_class_24px" />
 </menu>
